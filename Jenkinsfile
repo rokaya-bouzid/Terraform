@@ -14,6 +14,8 @@ credentials('AWS_SECRET_ACCESS_KEY')
         stage('Initialize Terraform') {
             steps {
                 sh 'terraform init'
+                sh 'terraform validate'
+
             }
         }
         stage('Plan Terraform') {
