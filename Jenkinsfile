@@ -1,29 +1,16 @@
 pipeline {
-    agent any
-    environment {
-        AWS_ACCESS_KEY_ID     = credentials('AWS_ACCESS_KEY_ID')
-        AWS_SECRET_ACCESS_KEY =
-credentials('AWS_SECRET_ACCESS_KEY')
-    }
+    agent any  // Utilise n'importe quel Node disponible
+
     stages {
-        stage('Checkout Code') {
+        stage('Hello') {
             steps {
-                git branch: 'main', url: 'https://github.com/rokaya-bouzid/Terraform.git'
+                echo 'Bonjour, ceci est un pipeline simple !'
             }
         }
-        stage('Initialize Terraform') {
+
+        stage('Afficher la date') {
             steps {
-                sh 'terraform init'
-            }
-        }
-        stage('Plan Terraform') {
-            steps {
-                sh 'terraform plan'
-            }
-        }
-        stage('Apply Terraform') {
-            steps {
-                sh 'terraform apply -auto-approve'
+                sh 'date'  // Affiche la date sur Linux
             }
         }
     }
