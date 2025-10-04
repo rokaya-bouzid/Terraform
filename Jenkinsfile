@@ -13,6 +13,7 @@ credentials('AWS_SECRET_ACCESS_KEY')
         }
         stage('Initialize Terraform') {
             steps {
+                sh 'rm -rf .terraform .terraform.lock.hcl || true'
                 sh 'terraform init'
                 sh 'terraform validate'
 
