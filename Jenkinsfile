@@ -8,7 +8,7 @@ credentials('AWS_SECRET_ACCESS_KEY')
     stages {
         stage('Checkout Code') {
             steps {
-                git 'https://github.com/rokaya-bouzid/Terraform.git'
+                git branch: 'main', url: 'https://github.com/rokaya-bouzid/Terraform.git'
             }
         }
         stage('Initialize Terraform') {
